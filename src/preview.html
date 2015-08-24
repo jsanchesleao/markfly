@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Markfive Preview</title>
+    <title>Markfly Preview</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+
     <style> 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
@@ -176,6 +179,13 @@ body{font-size:16px;}
         }
       };
 
+      var highlightBlocks = function(blocks) {
+        var length = blocks.length;
+        for (var i = 0; i < length; i++) {
+          hljs.highlightBlock(blocks[i]);
+        }
+      }
+
       ws.onopen = function(event) {
         console.log('Connected', event);
       };
@@ -187,6 +197,7 @@ body{font-size:16px;}
       ws.onmessage = function(msg) {
         console.log(msg);
         content.innerHTML = msg.data;
+        highlightBlocks(document.querySelectorAll('code'));
         updateScroll();
       };
     </script>

@@ -4,7 +4,7 @@ Live Markdown previewer
 
 ## Installation
 
-```sh
+```bash
 bash $> npm install -g markfly
 ```
 
