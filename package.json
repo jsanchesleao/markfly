@@ -1,6 +1,6 @@
 {
   "name": "markfly",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "markdown live preview",
   "main": "src/main.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "jsanchesleao@gmail.com",
   "license": "ISC",
   "bin": {
-    "markfive": "bin/cli.js"
+    "markfly": "bin/cli.js"
   },
   "dependencies": {
     "chokidar": "^1.0.5",
