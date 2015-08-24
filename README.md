@@ -1,19 +1,18 @@
-# MARKFIVE
+# MARKFLY
 
 Live Markdown previewer
 
 ## Installation
 
-```bash
-bash $> npm install -g markfive
+```sh
+bash $> npm install -g markfly
 ```
 
 ## Usage
-Run *markfive path-to-md-file*  on a terminal and markfive will print a url to access your preview
+Run *markfly path-to-md-file*  on a terminal and markfly will print a url to access your preview
 
-From now on, just edit your markdown file in you favourite editor and markfive will automatically update the html preview on the browser
+From now on, just edit your markdown file in you favourite editor and markfly will automatically update the html preview on the browser
 
 ## TODOS
 - Smart Scrolling
 - Code Syntax Highlight
-- Watch on MacOSX (working on it...)
