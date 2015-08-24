@@ -1,6 +1,6 @@
 {
   "name": "markfly",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "markdown live preview",
   "main": "src/main.js",
   "scripts": {
