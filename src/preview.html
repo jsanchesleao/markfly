@@ -104,13 +104,78 @@ body{font-size:16px;}
   @page :right { margin: 15mm 10mm 15mm 20mm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
-}</style>
+}
+#pin-down {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAvxJREFUeJzt3E2ID3Ecx/G3xw152oM8JQ+Rh5DDlptyECfl6OAiOXo4iYOLkps4Ui5byMFDe6AUkQMupEhKREJ5WLLlYZfDcFHs/uc/8/vOzP/9qs91Z+bzmXbb+c8uSJIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZKkTrMYOAf0Az/Nf/MROAssytV0BS0D3hNfbN3yDliSo+/K6SO+zLrmYo6+WzKq7AMAA8CEBMdpogFgUpkHGF3mF/9tMMExmupH2QdIcQP0JThGUzWiu9nAC+J/ntYtz4FZOfqupJX4K2Ar+QisyNV0hW0AvhNfbtXzDVifs+PK2058wVXPttzt1sQh4kuuag620Wut9BJfdtVyqq1Ga2Y8cJ340quSq8C4dgqto+nAI+LLj84DYGqbXdbWAuAN8SNE5RUwr+0Wa64H+EL8GKnzGVhTQH+NsJnsM4PoUVLlB7CpkOYaZBfxw6TKzoI6a5yjxI9Tdo4U1lYDjQbOEz9SWTlDmncwam0CcJv4sYrOTaCrwJ4abQbwlPjRispjoLvQhjrAUprxMulbYGHB3XSMdcBX4kfMmwFgbeGtdJitwBDxY7aaQWBLCX10pAPED9pq9pTSRAc7SfyoI82xkjroaGOBK8SPO1wukOZt6440BbhP/Mj/yh1gYmlXLwDmAi+JH/vvPCV7fqEEVgOfiB/9T96TPbdQQhupxmvmX8meVyjADmLHHyJ7TqFAh4m7AfYnuD4NYxRwmvTjn0hxcRqZLuAG6ca/TPZcQhXSTfaxa9nj3wMmJ7omtWgR2cevZY3/ApiT7GqUy1qyj2GLHr8fWJXwOtSGLRT7mvl3sj9vV43spbgbYHvic1dBjtP++IeSn7UKMwa4RP7xe9Ofsoo2EbhL6+NfI/szdjXATOAZIx//ITAt4kRVnuXAB4Yf/zUwP+YUVbYe/v8yyROyG0UNNgXYR/b6Vj/Zd4VbwG78n8aSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJCnQL74K1b7KD2ipAAAAAElFTkSuQmCC) no-repeat left center;
+  background-size: 50px;
+  position: fixed;
+  right: 20px;
+  top: 110px;
+}
+
+#pin-none {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAABPpJREFUeJzt3UtoXHUUx/FvrEqlGmO12ljFB02LFDeiCIIVcWGta1EUF9LuFBEFqyK48oF0I0XXCtaFFBUEqdCVUVtrfVStr2ofqF0koJUiRZLOuPjnShgmd+7j/76/D5xtcv7nf+Z/kjv3zoCIiIiIiIiIiIiIiIiIiIiIiIiIiCRvLHQCGVkBbAE2AZcAfwDvATuB+YB5iQfXAUeA/pA4AEyGS01cuwA4zvDNL+In1ATZeobyzS/iR2B1oBzFkRXADNUaoA/8gJogK9uovvlFfA9cFiJZsWsC+JP6DdAHDgGX+k9ZbNpOs80v4jvUBMlaB/xLuwYommCV59zFgj203/wivsVcOJJEbMHe5hfxDWqCJFwD/I39BugDB4GL/S1F6joH2IubzS/ia9QE0XoVt5tfxFfASk9rkooewc/mF/ElaoJo3A+cwW8D9IEvgIs8rE9KPIh5L9/35hdxADVBME8CPcJtfhGfYy47iyfnA28SfuMXx37gQpeLFmMjcJjwGz4sPkNN4Mwa4HXiOPLLYh8w7qYE3XQl8ApwmvCbWzX2oiZo7RbgLWCO8BvaJD7F3IsoNUwCj2HeeAm9gTZiGjjXaoUytAF4AlOsEBdzXMdTbQuU04Mh48D1wE3AzcBt5H8r9lHg2jY/INYGGAOWLcR5CzGOuSCyEnNT5eXAVZgCrAeuIN71uDSBeYs6eTcC7wJ/Ef5oTSmy+I/gIcJec081DjcpdmxuIN1/x0LH4w3qHZ1dhC9kirEHOLtBvaOjmV8v/gFeBpY3KXaMYr/+HkucAl4kw7uHfyV8cWOOOWAHGT9F9ALhixxr7MZc48jaBHCM8MWOKWaA+1rUNDlrgd8IX/gY4n06+rxg15tgjkz+r2+jq01wErjDQv2y0LUmOIF5F1MW6UoTnACmLNUsO7k3wUn0yh8p1yaYB+60WKes5dgEz1mtUAfk1AT7gLPslqcbcmiCOTT3W0m9CV6zX5LuSbUJTpP/XcrepNgEO5xUosNSaoJ54GonVei4VJpgl6sCSBpNcLuz1QsQdxMcIeInlnK5IPELFh6UdGQnphHEoVXA74R/tQ+LDQ7XLZjjdTfhN3pY/Oxw3VbkMAKeJt531j4InUDubiXuh0rvdrd0iXnu9zGfSJLFo9sxinnuF3HQ2eotSvVvgJjnfmF/6ARy1XTuf4L5QmdfJ8DDrgrQZU3mfg94CfMs/Tr8NcFGRzXorCZzfxa4a+Dn+GoCfTuoZVW/pLmIjzGfHDaM6yY4ZWvRYtSZ+4uP/DIum+BQ6xXL/+rM/WFHfpkp3DTBhw3XKgPqzP1plj7yy7hogjca5CFDVJn7Pcxn57T5xCzbTbC9RS6yoMrcr3vkl7HZBM9ayqmzqsz9acw3fdg0VeH3VolHLefVKaPmvo0jv4yNJtjqKLdOKJv7s8AmDzm0bYIHPOSYpbK57+LIL9OmCe71mGc2lpr7xZG/LEBOa5fIaVTcEyDXpC01930d+WWaNMHmIJkmbNjc/wi/R36ZOk3QQw+B1jI493uYj48NceSXqdoE74RKMEWDc3+WuO/0GfUE0jH06q9scO7HdOSXWYP5bqPFH3N/BngbWB0wr+QUcz/WI3+UScwfe5vRxtdWzP0Z4j7yxYFi7qdy5ItFY5jHpZ4nvSNfLNiKjvzOWo7ulBUREREREREREREREREREREREREREbHvPyIqaNTSvm2dAAAAAElFTkSuQmCC);
+  background-size: 50px;
+  position: fixed;
+  right: 20px;
+  top: 30px;
+}
+
+.action-button {
+  min-height: 50px;
+  width: 50px;
+  border: 6px solid black;
+  border-radius: 5px;
+}
+
+.action-button:hover {
+  border-color: #9a9;
+  cursor: pointer;
+}
+
+.active {
+  border-color: #9c9;
+}
+    </style>
   </head>
   <body>
+    <div id="pin-down" title="Pin Down" class="action-button latent" onclick="pinDown()"></div>
+    <div id="pin-none" title="Fix Scroll" class="action-button active" onclick="pinNone()"></div>
     <div id="preview"></div>
     <script>
       var ws = new WebSocket('ws://localhost:8494');
       var content = document.getElementById('preview');
+      var pinDownButton = document.getElementById('pin-down');
+      var pinNoneButton = document.getElementById('pin-none');
+      var scrolling = 'none';
+
+      var updateButtons = function() {
+        if (scrolling === 'none') {
+          pinDownButton.className = 'action-button latent';
+          pinNoneButton.className = 'action-button active';
+        }
+        if (scrolling === 'pin-down') {
+          pinDownButton.className = 'action-button active';
+          pinNoneButton.className = 'action-button latent';
+        }
+      }
+
+      var pinDown = function() {
+        scrolling = 'pin-down';
+        updateButtons();
+      };
+
+      var pinNone = function() {
+        scrolling = 'none';
+        updateButtons();
+      };
+
+      var updateScroll = function() {
+        if (scrolling === 'pin-down') {
+          window.scrollTo(0,document.body.scrollHeight);
+        }
+      };
+
       ws.onopen = function(event) {
         console.log('Connected', event);
       };
@@ -122,6 +187,7 @@ body{font-size:16px;}
       ws.onmessage = function(msg) {
         console.log(msg);
         content.innerHTML = msg.data;
+        updateScroll();
       };
     </script>
   </body>
