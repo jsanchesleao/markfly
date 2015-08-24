@@ -15,4 +15,3 @@ From now on, just edit your markdown file in you favourite editor and markfly wi
 
 ## TODOS
 - Detect content that changed for better scroll
-- Code Syntax Highlight
