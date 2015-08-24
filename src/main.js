@@ -1,4 +1,5 @@
 var fs = require('fs');
+var chokidar = require('chokidar');
 var path = require('path');
 var server = require('http').createServer();
 var markdown = require('./markdown');
@@ -7,16 +8,13 @@ var WebSocketServer = require('ws').Server,
 
 var start = function(filename, port) {
 
-  var watcher = fs.watch(filename);
-
   var watchFile = function(ws, callback) {
-    var watcher = fs.watch(filename);
-    watcher.on('change', function(evt, file) {
-      if (evt === 'change') {
-        markdown(filename, callback);
-        watcher.close();
-        watchFile(ws, callback);
-      }
+    var watcher = chokidar.watch(filename);
+    watcher.on('change', function(path) {
+      console.log('Change detected! Updating');
+      markdown(filename, callback);
+      watcher.close();
+      watchFile(ws, callback);
     });
   };
 

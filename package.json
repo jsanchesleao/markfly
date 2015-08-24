@@ -1,6 +1,6 @@
 {
   "name": "markfive",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "markdown live preview",
   "main": "src/main.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "markfive": "bin/cli.js"
   },
   "dependencies": {
+    "chokidar": "^1.0.5",
     "marked": "^0.3.5",
     "ws": "^0.8.0"
   }
