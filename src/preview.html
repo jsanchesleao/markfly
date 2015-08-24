@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Markfive Preview</title>
+  </head>
+  <body>
+    <div id="preview"></div>
+    <script>
+      var ws = new WebSocket('ws://localhost:8494');
+      var content = document.getElementById('preview');
+      ws.onopen = function(event) {
+        console.log('Connected', event);
+      };
+
+      ws.onerror = function(error) {
+        console.log('Error', error);
+      };
+
+      ws.onmessage = function(msg) {
+        console.log(msg);
+        content.innerHTML = msg.data;
+      };
+    </script>
+  </body>
+</html>

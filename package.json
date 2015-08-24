@@ -1,0 +1,18 @@
+{
+  "name": "markfive",
+  "version": "1.0.0",
+  "description": "markdown live preview",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "jsanchesleao@gmail.com",
+  "license": "ISC",
+  "bin": {
+    "markfive": "bin/cli.js"
+  },
+  "dependencies": {
+    "marked": "^0.3.5",
+    "ws": "^0.8.0"
+  }
+}
