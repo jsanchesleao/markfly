@@ -8,28 +8,41 @@ var WebSocketServer = require('ws').Server,
 
 var start = function(filename, port) {
 
-  var watchFile = function(ws, callback) {
+  var sockets = [];
+
+  var watchFile = function() {
     var watcher = chokidar.watch(filename);
     watcher.on('change', function(path) {
       console.log('Change detected! Updating');
-      markdown(filename, callback);
+      markdown(filename, function(content) {
+        sockets.forEach(function(ws) { 
+          ws.send(content)
+        });
+      });
       watcher.close();
-      watchFile(ws, callback);
+      watchFile();
     });
   };
+  watchFile();
 
   wss.on('connection', function connection(ws) {
+    console.log('Opening a websocket connection');
+    sockets.push(ws);
+
     ws.on('message', function(message) {
       console.log('received: ' + message);
+    });
+
+    ws.on('close', function() {
+      console.log('Closing a websocket connection');
+      sockets.splice(sockets.indexOf(ws), 1);
     });
 
     markdown(filename, function(content) {
       ws.send(content);
     });
 
-    watchFile(ws, function(content) {
-      ws.send(content);
-    });
+
   });
 
   server.on('request', function(req, res) {
