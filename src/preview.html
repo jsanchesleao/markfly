@@ -157,7 +157,7 @@ p code, ol code, ul code {
     <div id="pin-none" title="Fix Scroll" class="action-button active" onclick="pinNone()"></div>
     <div id="preview"></div>
     <script>
-      var ws = new WebSocket('ws://0.0.0.0:8494');
+      var ws = new WebSocket('ws://###WEBSOCKET_HOST###:###WEBSOCKET_PORT###');
       var content = document.getElementById('preview');
       var pinDownButton = document.getElementById('pin-down');
       var pinNoneButton = document.getElementById('pin-none');

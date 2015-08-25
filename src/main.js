@@ -6,7 +6,7 @@ var markdown = require('./markdown');
 var WebSocketServer = require('ws').Server,
     wss = new WebSocketServer({server: server});
 
-var start = function(filename, port) {
+var start = function(filename, port, host) {
 
   var sockets = [];
 
@@ -47,11 +47,17 @@ var start = function(filename, port) {
 
   server.on('request', function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    fs.createReadStream(path.join(__dirname, 'preview.html'), {encoding: 'utf-8'}).pipe(res, {end: true});
+    fs.readFile(path.join(__dirname, 'preview.html'), 
+                {encoding: 'utf-8'}, 
+                function(err, file) {
+                  res.write(file.replace(/###WEBSOCKET_HOST###/g, host)
+                                .replace(/###WEBSOCKET_PORT###/g, port));
+                  res.end();
+                });
   });
 
   server.listen(port, function() {
-    console.log('see preview in http://localhost:' + port);
+    console.log('see preview in http://' + host + ':' + port);
   });
 };
 
