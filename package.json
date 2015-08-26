@@ -1,6 +1,6 @@
 {
   "name": "markfly",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "markdown live preview",
   "main": "src/main.js",
   "keywords": [
@@ -28,6 +28,7 @@
     "highlight.js": "^8.7.0",
     "marked": "^0.3.5",
     "minimist": "^1.2.0",
+    "rimraf": "^2.4.2",
     "ws": "^0.8.0"
   },
   "devDependencies": {

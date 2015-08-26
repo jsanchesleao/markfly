@@ -3,6 +3,7 @@ var chokidar = require('chokidar');
 var path = require('path');
 var server = require('http').createServer();
 var markdown = require('./markdown');
+var rimraf = require('rimraf');
 var WebSocketServer = require('ws').Server,
     wss = new WebSocketServer({server: server});
 
@@ -112,8 +113,22 @@ var start = function(filename, port, host) {
                 });
   });
 
+  var removeLockFile = function() {
+    rimraf.sync('.markfly_port');
+  };
+
   server.listen(port, function() {
     console.log('Markfly is running!\nPreview in http://' + host + ':' + port);
+    fs.writeFile('.markfly_port', port + '\n', {encoding: 'utf8'}, function(err) {
+      if (err) {
+        console.log('Could not write .markfly_port file', err);
+      }
+    });
+
+    process.on('exit', removeLockFile);
+    process.on('SIGINT', function() {
+      process.exit();
+    });
   });
 };
 
