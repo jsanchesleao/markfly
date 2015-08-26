@@ -168,7 +168,14 @@ body{font-size:16px;}
   background-size: 50px;
   position: fixed;
   right: 20px;
-  top: 110px;
+  top: 30px;
+}
+
+#smart-scroll {
+  background: url(data:image;base64,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);
+  position: fixed;
+  right: 20px;
+  top: 30px;
 }
 
 #pin-none {
@@ -182,7 +189,7 @@ body{font-size:16px;}
 .action-button {
   min-height: 50px;
   width: 50px;
-  border: 6px solid black;
+  border: 3px solid black;
   border-radius: 5px;
 }
 
@@ -192,7 +199,11 @@ body{font-size:16px;}
 }
 
 .active {
-  border-color: #9c9;
+  display: block;
+}
+
+.latent {
+  display: none;
 }
 
 pre {
@@ -207,22 +218,135 @@ p code, ol code, ul code {
 </style>
  </head>
   <body>
-    <div id="pin-down" title="Pin Down" class="action-button latent" onclick="pinDown()"></div>
-    <div id="pin-none" title="Fix Scroll" class="action-button active" onclick="pinNone()"></div>
+    <div id="smart-scroll" title="Smart Scroll" class="action-button active" onclick="pinDown()"></div>
+    <div id="pin-down" title="Pin Down" class="action-button latent" onclick="pinNone()"></div>
+    <div id="pin-none" title="Fix Scroll" class="action-button latent" onclick="smartScroll()"></div>
     <div id="preview"></div>
+    <script>window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==window.pageYOffset&&void 0!==history.pushState){var a=function(a){return"HTML"===a.nodeName?-window.pageYOffset:a.getBoundingClientRect().top+window.pageYOffset},b=function(a){return.5>a?4*a*a*a:(a-1)*(2*a-2)*(2*a-2)+1},c=function(a,c,d,e){return d>e?c:a+(c-a)*b(d/e)},d=function(b,d,e){d=d||500;var f=window.pageYOffset;if("number"==typeof b)var g=parseInt(b);else var g=a(b);var h=Date.now(),i=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||function(a){window.setTimeout(a,15)},j=function(){var a=Date.now()-h;window.scroll(0,c(f,g,a,d)),a>d?"function"==typeof e&&e(b):i(j)};j()},e=function(a){a.preventDefault(),location.hash!==this.hash&&window.history.pushState(null,null,this.hash),d(document.getElementById(this.hash.substring(1)),500,function(a){location.replace("#"+a.id)})};return document.addEventListener("DOMContentLoaded",function(){for(var b,a=document.querySelectorAll('a[href^="#"]:not([href="#"])'),c=a.length;b=a[--c];)b.addEventListener("click",e,!1)}),d}}();
+</script>
+    <script>(function() {
+  var _flatten = function(element, acc) {
+    acc.push(element);
+
+    if (element.tagName && element.childNodes.length > 0) {
+      for(var _i = 0; _i < element.childNodes.length; _i++) {
+        (function(i){
+          _flatten(element.childNodes[i], acc);
+        }(_i));
+      } 
+    } 
+  };
+
+  var flatten = function(element) {
+    var acc = [];
+    _flatten(element, acc);
+    return acc;
+  };
+
+  var different = function(one, other) {
+    return (!!one && !other) || (!one && !!other) ||
+           one.tagName !== other.tagName ||
+           one.className !== other.className ||
+           one.nodeType  !== other.nodeType ||
+           ((one.nodeType === document.TEXT_NODE) &&
+            (one.textContent !== other.textContent))
+  };
+
+  var firstDiff = function(_old, _new) {
+    var fOld = flatten(_old);
+    var fNew = flatten(_new);
+    var nLength = fNew.length;
+    var i = 0;
+
+    for(; i < nLength; i++) {
+      if (!fOld[i]) {
+        return 'OLD_OVER';
+      }
+      if (different(fOld[i], fNew[i])) {
+        return fNew[i];
+      } 
+    } 
+    if (fOld.length === fNew.length) {
+      return 'NO_CHANGE';
+    }
+    else {
+      return 'NEW_OVER';
+    }
+  };
+
+  var maxScroll = Math.max(document.body.scrollHeight, document.body.offsetHeight, 
+                   document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+
+  var scrollElem = function(elementNode) {
+    var position = elementNode.getBoundingClientRect().top;
+    if (position + 100 < window.innerHeight) {
+      position -= 100;
+    }
+    position += window.pageYOffset;
+    console.log('Scrolling to', position);
+    smoothScroll(position);
+  };
+    
+  var scrollText = function(textNode) {
+    var parent = textNode.parentNode;
+    var span = document.createElement('span');
+    var data = {};
+    parent.replaceChild(span, textNode);
+    span.appendChild(textNode);
+    scrollElem(span);
+
+    parent.replaceChild(textNode, span);
+  };
+
+  var scrollNode = function(node) {
+    if (!node) {
+      smoothScroll(maxScroll + window.innerHeight);
+    }
+    else if (node === 'NO_CHANGE') {
+      return;
+    }
+    else if (node === 'OLD_OVER') {
+      smoothScroll(0);
+    }
+    else if (node === 'NEW_OVER') {
+      smoothScroll(maxScroll + window.innerHeight);
+    }
+    else if (node.nodeType === 3) {
+      scrollText(node);
+    }
+    else {
+      scrollElem(node);
+    }
+  };
+
+  window.scrollDiff = function(oldContent, newContent) {
+    var diff = firstDiff(oldContent, newContent);
+    console.log('DIFF: ', diff);
+    scrollNode(diff);
+  };
+}());
+</script>
     <script>var ws = new WebSocket('ws://###WEBSOCKET_HOST###:###WEBSOCKET_PORT###');
 var content = document.getElementById('preview');
+var smartScrollButton = document.getElementById('smart-scroll');
 var pinDownButton = document.getElementById('pin-down');
 var pinNoneButton = document.getElementById('pin-none');
-var scrolling = 'none';
+var scrolling = 'smart';
 
 var updateButtons = function() {
   if (scrolling === 'none') {
+    smartScrollButton.className = 'action-button latent';
     pinDownButton.className = 'action-button latent';
     pinNoneButton.className = 'action-button active';
   }
-  if (scrolling === 'pin-down') {
+  else if (scrolling === 'pin-down') {
+    smartScrollButton.className = 'action-button latent';
     pinDownButton.className = 'action-button active';
+    pinNoneButton.className = 'action-button latent';
+  }
+  else if (scrolling === 'smart') {
+    smartScrollButton.className = 'action-button active';
+    pinDownButton.className = 'action-button latent';
     pinNoneButton.className = 'action-button latent';
   }
 }
@@ -237,9 +361,19 @@ var pinNone = function() {
   updateButtons();
 };
 
+var smartScroll = function() {
+  scrolling = 'smart';
+  updateButtons();
+};
+
+var oldContent = document.createElement('div');
+
 var updateScroll = function() {
   if (scrolling === 'pin-down') {
-    window.scrollTo(0,document.body.scrollHeight);
+    smoothScroll(document.body.scrollHeight);
+  }
+  else if (scrolling === 'smart') {
+    scrollDiff(oldContent, content);
   }
 };
 
@@ -252,7 +386,7 @@ ws.onerror = function(error) {
 };
 
 ws.onmessage = function(msg) {
-  console.log(msg);
+  oldContent.innerHTML = content.innerHTML;
   content.innerHTML = msg.data;
   updateScroll();
 };
