@@ -52,3 +52,7 @@ Markfly is released under __ISC__ License. Click [here](http://opensource.org/li
 * Include some control routes, such as __/set-content__ and __/config__, for use in editor extensions.
 * Check smart scroll accuracy across different browsers.
 * Test on windows.
+
+## Author
+jsanchesleao <jsanchesleao@gmail.com>
+

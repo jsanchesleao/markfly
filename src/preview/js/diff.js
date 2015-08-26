@@ -80,7 +80,7 @@
       return;
     }
     else if (node === 'OLD_OVER') {
-      smoothScroll(0);
+      smoothScroll(maxScroll + window.innerHeight);
     }
     else if (node === 'NEW_OVER') {
       smoothScroll(maxScroll + window.innerHeight);

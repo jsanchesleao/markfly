@@ -9,9 +9,10 @@ var WebSocketServer = require('ws').Server,
 var start = function(filename, port, host) {
 
   var sockets = [];
+  var watcher = null;
 
   var watchFile = function() {
-    var watcher = chokidar.watch(filename);
+    watcher = chokidar.watch(filename);
     watcher.on('change', function(path) {
       console.log('Change detected! Updating');
       markdown(filename, function(content) {
@@ -46,6 +47,61 @@ var start = function(filename, port, host) {
   });
 
   server.on('request', function(req, res) {
+    if (req.url === '/quit') {
+      res.write('0');
+      res.end();
+      process.exit(0);
+    }
+    else if (req.url === '/scroll/smart') {
+      sockets.forEach(function(ws) { ws.send(':set:smart-scroll') });
+      res.end(); return;
+    }
+    else if (req.url === '/scroll/fixed') {
+      sockets.forEach(function(ws) { ws.send(':set:fixed-scroll') });
+      res.end(); return;
+    }
+    else if (req.url === '/scroll/pin-down') {
+      sockets.forEach(function(ws) { ws.send(':set:pin-down') });
+      res.end(); return;
+    }
+    else if (req.url === '/content') {
+      var content = '';
+      req.on('data', function(chunk) { content += chunk; });
+      req.on('end', function() { 
+        var html = markdown.compile(content);
+        sockets.forEach(function(ws){
+          ws.send(html);
+        });
+        res.end();
+      });
+      return;
+    }
+    else if (req.url === '/file') {
+      var file = '';
+      req.on('data', function(chunk) { file += chunk; });
+      req.on('end', function() {
+        console.log('Now watching ', file);
+        fs.exists(file, function(exists) {
+          if (exists) {
+            res.write('0');
+            filename = file;
+            watcher && watcher.close();
+            watchFile();
+            markdown(filename, function(content){
+              sockets.forEach(function(ws) {
+                ws.send(content);
+              });
+            });
+          }
+          else {
+            console.log(file);
+            res.write('1');
+          }
+          res.end();
+        });
+      });
+      return;
+    }
     res.writeHead(200, {'Content-Type': 'text/html'});
     fs.readFile(path.join(__dirname, 'preview.html'), 
                 {encoding: 'utf-8'}, 

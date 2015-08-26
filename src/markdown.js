@@ -14,4 +14,8 @@ var getMarkdown = function(filename, callback) {
   });
 };
 
+getMarkdown.compile = function(content) {
+  return marked(content);
+};
+
 module.exports = getMarkdown;

@@ -57,8 +57,29 @@ ws.onerror = function(error) {
   console.log('Error', error);
 };
 
+var justOpened = true;
 ws.onmessage = function(msg) {
+  if (msg.data === ':set:smart-scroll') {
+    scrolling = 'smart';
+    updateButtons();
+    return;
+  }
+  else if (msg.data === ':set:fixed-scroll'){
+    scrolling = 'none';
+    updateButtons();
+    return;
+  }
+  else if (msg.data === ':set:pin-down'){
+    scrolling = 'pin-down';
+    updateButtons();
+    return;
+  }
   oldContent.innerHTML = content.innerHTML;
   content.innerHTML = msg.data;
-  updateScroll();
+  if (!justOpened) {
+    updateScroll();
+  }
+  else {
+    justOpened = false;
+  }
 };
