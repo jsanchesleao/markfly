@@ -57,7 +57,7 @@ var start = function(filename, port, host) {
   });
 
   server.listen(port, function() {
-    console.log('see preview in http://' + host + ':' + port);
+    console.log('Markfly is running!\nPreview in http://' + host + ':' + port);
   });
 };
 

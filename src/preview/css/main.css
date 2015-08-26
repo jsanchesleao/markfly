@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Markfly Preview</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
-
-    <style> 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
 body{
@@ -149,60 +141,3 @@ p code, ol code, ul code {
   background-color: #f0f0f0;
   padding: 1px 5px 2px 5px;
 }
-
-    </style>
-  </head>
-  <body>
-    <div id="pin-down" title="Pin Down" class="action-button latent" onclick="pinDown()"></div>
-    <div id="pin-none" title="Fix Scroll" class="action-button active" onclick="pinNone()"></div>
-    <div id="preview"></div>
-    <script>
-      var ws = new WebSocket('ws://###WEBSOCKET_HOST###:###WEBSOCKET_PORT###');
-      var content = document.getElementById('preview');
-      var pinDownButton = document.getElementById('pin-down');
-      var pinNoneButton = document.getElementById('pin-none');
-      var scrolling = 'none';
-
-      var updateButtons = function() {
-        if (scrolling === 'none') {
-          pinDownButton.className = 'action-button latent';
-          pinNoneButton.className = 'action-button active';
-        }
-        if (scrolling === 'pin-down') {
-          pinDownButton.className = 'action-button active';
-          pinNoneButton.className = 'action-button latent';
-        }
-      }
-
-      var pinDown = function() {
-        scrolling = 'pin-down';
-        updateButtons();
-      };
-
-      var pinNone = function() {
-        scrolling = 'none';
-        updateButtons();
-      };
-
-      var updateScroll = function() {
-        if (scrolling === 'pin-down') {
-          window.scrollTo(0,document.body.scrollHeight);
-        }
-      };
-
-      ws.onopen = function(event) {
-        console.log('Connected', event);
-      };
-
-      ws.onerror = function(error) {
-        console.log('Error', error);
-      };
-
-      ws.onmessage = function(msg) {
-        console.log(msg);
-        content.innerHTML = msg.data;
-        updateScroll();
-      };
-    </script>
-  </body>
-</html>
