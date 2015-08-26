@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Markfly Preview</title>
+    <style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+</style>
+    <style>.hljs{display:block;overflow-x:auto;padding:0.5em;background:#f0f0f0;-webkit-text-size-adjust:none}.hljs,.hljs-subst,.hljs-tag .hljs-title,.nginx .hljs-title{color:black}.hljs-string,.hljs-title,.hljs-constant,.hljs-parent,.hljs-tag .hljs-value,.hljs-rule .hljs-value,.hljs-preprocessor,.hljs-pragma,.hljs-name,.haml .hljs-symbol,.ruby .hljs-symbol,.ruby .hljs-symbol .hljs-string,.hljs-template_tag,.django .hljs-variable,.smalltalk .hljs-class,.hljs-addition,.hljs-flow,.hljs-stream,.bash .hljs-variable,.pf .hljs-variable,.apache .hljs-tag,.apache .hljs-cbracket,.tex .hljs-command,.tex .hljs-special,.erlang_repl .hljs-function_or_atom,.asciidoc .hljs-header,.markdown .hljs-header,.coffeescript .hljs-attribute,.tp .hljs-variable{color:#800}.smartquote,.hljs-comment,.hljs-annotation,.diff .hljs-header,.hljs-chunk,.asciidoc .hljs-blockquote,.markdown .hljs-blockquote{color:#888}.hljs-number,.hljs-date,.hljs-regexp,.hljs-literal,.hljs-hexcolor,.smalltalk .hljs-symbol,.smalltalk .hljs-char,.go .hljs-constant,.hljs-change,.lasso .hljs-variable,.makefile .hljs-variable,.asciidoc .hljs-bullet,.markdown .hljs-bullet,.asciidoc .hljs-link_url,.markdown .hljs-link_url{color:#080}.hljs-label,.ruby .hljs-string,.hljs-decorator,.hljs-filter .hljs-argument,.hljs-localvars,.hljs-array,.hljs-attr_selector,.hljs-important,.hljs-pseudo,.hljs-pi,.haml .hljs-bullet,.hljs-doctype,.hljs-deletion,.hljs-envvar,.hljs-shebang,.apache .hljs-sqbracket,.nginx .hljs-built_in,.tex .hljs-formula,.erlang_repl .hljs-reserved,.hljs-prompt,.asciidoc .hljs-link_label,.markdown .hljs-link_label,.vhdl .hljs-attribute,.clojure .hljs-attribute,.asciidoc .hljs-attribute,.lasso .hljs-attribute,.coffeescript .hljs-property,.hljs-phony{color:#88f}.hljs-keyword,.hljs-id,.hljs-title,.hljs-built_in,.css .hljs-tag,.hljs-doctag,.smalltalk .hljs-class,.hljs-winutils,.bash .hljs-variable,.pf .hljs-variable,.apache .hljs-tag,.hljs-type,.hljs-typename,.tex .hljs-command,.asciidoc .hljs-strong,.markdown .hljs-strong,.hljs-request,.hljs-status,.tp .hljs-data,.tp .hljs-io{font-weight:bold}.asciidoc .hljs-emphasis,.markdown .hljs-emphasis,.tp .hljs-units{font-style:italic}.nginx .hljs-built_in{font-weight:normal}.coffeescript .javascript,.javascript .xml,.lasso .markup,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:0.5}
+</style>
+    <style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+color:#444;
+font-family: 'Open Sans', sans-serif;
+font-size:12px;
+line-height:1.5em;
+padding:1em;
+margin:auto;
+max-width:42em;
+background:#fefefe;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+pre, code, kbd, samp { color: #000; font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 0.98em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+#pin-down {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAvxJREFUeJzt3E2ID3Ecx/G3xw152oM8JQ+Rh5DDlptyECfl6OAiOXo4iYOLkps4Ui5byMFDe6AUkQMupEhKREJ5WLLlYZfDcFHs/uc/8/vOzP/9qs91Z+bzmXbb+c8uSJIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZKkTrMYOAf0Az/Nf/MROAssytV0BS0D3hNfbN3yDliSo+/K6SO+zLrmYo6+WzKq7AMAA8CEBMdpogFgUpkHGF3mF/9tMMExmupH2QdIcQP0JThGUzWiu9nAC+J/ntYtz4FZOfqupJX4K2Ar+QisyNV0hW0AvhNfbtXzDVifs+PK2058wVXPttzt1sQh4kuuag620Wut9BJfdtVyqq1Ga2Y8cJ340quSq8C4dgqto+nAI+LLj84DYGqbXdbWAuAN8SNE5RUwr+0Wa64H+EL8GKnzGVhTQH+NsJnsM4PoUVLlB7CpkOYaZBfxw6TKzoI6a5yjxI9Tdo4U1lYDjQbOEz9SWTlDmncwam0CcJv4sYrOTaCrwJ4abQbwlPjRispjoLvQhjrAUprxMulbYGHB3XSMdcBX4kfMmwFgbeGtdJitwBDxY7aaQWBLCX10pAPED9pq9pTSRAc7SfyoI82xkjroaGOBK8SPO1wukOZt6440BbhP/Mj/yh1gYmlXLwDmAi+JH/vvPCV7fqEEVgOfiB/9T96TPbdQQhupxmvmX8meVyjADmLHHyJ7TqFAh4m7AfYnuD4NYxRwmvTjn0hxcRqZLuAG6ca/TPZcQhXSTfaxa9nj3wMmJ7omtWgR2cevZY3/ApiT7GqUy1qyj2GLHr8fWJXwOtSGLRT7mvl3sj9vV43spbgbYHvic1dBjtP++IeSn7UKMwa4RP7xe9Ofsoo2EbhL6+NfI/szdjXATOAZIx//ITAt4kRVnuXAB4Yf/zUwP+YUVbYe/v8yyROyG0UNNgXYR/b6Vj/Zd4VbwG78n8aSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJCnQL74K1b7KD2ipAAAAAElFTkSuQmCC) no-repeat left center;
+  background-size: 50px;
+  position: fixed;
+  right: 20px;
+  top: 110px;
+}
+
+#pin-none {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAABPpJREFUeJzt3UtoXHUUx/FvrEqlGmO12ljFB02LFDeiCIIVcWGta1EUF9LuFBEFqyK48oF0I0XXCtaFFBUEqdCVUVtrfVStr2ofqF0koJUiRZLOuPjnShgmd+7j/76/D5xtcv7nf+Z/kjv3zoCIiIiIiIiIiIiIiIiIiIiIiIiIiCRvLHQCGVkBbAE2AZcAfwDvATuB+YB5iQfXAUeA/pA4AEyGS01cuwA4zvDNL+In1ATZeobyzS/iR2B1oBzFkRXADNUaoA/8gJogK9uovvlFfA9cFiJZsWsC+JP6DdAHDgGX+k9ZbNpOs80v4jvUBMlaB/xLuwYommCV59zFgj203/wivsVcOJJEbMHe5hfxDWqCJFwD/I39BugDB4GL/S1F6joH2IubzS/ia9QE0XoVt5tfxFfASk9rkooewc/mF/ElaoJo3A+cwW8D9IEvgIs8rE9KPIh5L9/35hdxADVBME8CPcJtfhGfYy47iyfnA28SfuMXx37gQpeLFmMjcJjwGz4sPkNN4Mwa4HXiOPLLYh8w7qYE3XQl8ApwmvCbWzX2oiZo7RbgLWCO8BvaJD7F3IsoNUwCj2HeeAm9gTZiGjjXaoUytAF4AlOsEBdzXMdTbQuU04Mh48D1wE3AzcBt5H8r9lHg2jY/INYGGAOWLcR5CzGOuSCyEnNT5eXAVZgCrAeuIN71uDSBeYs6eTcC7wJ/Ef5oTSmy+I/gIcJec081DjcpdmxuIN1/x0LH4w3qHZ1dhC9kirEHOLtBvaOjmV8v/gFeBpY3KXaMYr/+HkucAl4kw7uHfyV8cWOOOWAHGT9F9ALhixxr7MZc48jaBHCM8MWOKWaA+1rUNDlrgd8IX/gY4n06+rxg15tgjkz+r2+jq01wErjDQv2y0LUmOIF5F1MW6UoTnACmLNUsO7k3wUn0yh8p1yaYB+60WKes5dgEz1mtUAfk1AT7gLPslqcbcmiCOTT3W0m9CV6zX5LuSbUJTpP/XcrepNgEO5xUosNSaoJ54GonVei4VJpgl6sCSBpNcLuz1QsQdxMcIeInlnK5IPELFh6UdGQnphHEoVXA74R/tQ+LDQ7XLZjjdTfhN3pY/Oxw3VbkMAKeJt531j4InUDubiXuh0rvdrd0iXnu9zGfSJLFo9sxinnuF3HQ2eotSvVvgJjnfmF/6ARy1XTuf4L5QmdfJ8DDrgrQZU3mfg94CfMs/Tr8NcFGRzXorCZzfxa4a+Dn+GoCfTuoZVW/pLmIjzGfHDaM6yY4ZWvRYtSZ+4uP/DIum+BQ6xXL/+rM/WFHfpkp3DTBhw3XKgPqzP1plj7yy7hogjca5CFDVJn7Pcxn57T5xCzbTbC9RS6yoMrcr3vkl7HZBM9ayqmzqsz9acw3fdg0VeH3VolHLefVKaPmvo0jv4yNJtjqKLdOKJv7s8AmDzm0bYIHPOSYpbK57+LIL9OmCe71mGc2lpr7xZG/LEBOa5fIaVTcEyDXpC01930d+WWaNMHmIJkmbNjc/wi/R36ZOk3QQw+B1jI493uYj48NceSXqdoE74RKMEWDc3+WuO/0GfUE0jH06q9scO7HdOSXWYP5bqPFH3N/BngbWB0wr+QUcz/WI3+UScwfe5vRxtdWzP0Z4j7yxYFi7qdy5ItFY5jHpZ4nvSNfLNiKjvzOWo7ulBUREREREREREREREREREREREREREbHvPyIqaNTSvm2dAAAAAElFTkSuQmCC);
+  background-size: 50px;
+  position: fixed;
+  right: 20px;
+  top: 30px;
+}
+
+.action-button {
+  min-height: 50px;
+  width: 50px;
+  border: 6px solid black;
+  border-radius: 5px;
+}
+
+.action-button:hover {
+  border-color: #9a9;
+  cursor: pointer;
+}
+
+.active {
+  border-color: #9c9;
+}
+
+pre {
+  background: #f0f0f0;
+  padding: 5px 10px;
+}
+
+p code, ol code, ul code {
+  background-color: #f0f0f0;
+  padding: 1px 5px 2px 5px;
+}
+</style>
+ </head>
+  <body>
+    <div id="pin-down" title="Pin Down" class="action-button latent" onclick="pinDown()"></div>
+    <div id="pin-none" title="Fix Scroll" class="action-button active" onclick="pinNone()"></div>
+    <div id="preview"></div>
+    <script>var ws = new WebSocket('ws://###WEBSOCKET_HOST###:###WEBSOCKET_PORT###');
+var content = document.getElementById('preview');
+var pinDownButton = document.getElementById('pin-down');
+var pinNoneButton = document.getElementById('pin-none');
+var scrolling = 'none';
+
+var updateButtons = function() {
+  if (scrolling === 'none') {
+    pinDownButton.className = 'action-button latent';
+    pinNoneButton.className = 'action-button active';
+  }
+  if (scrolling === 'pin-down') {
+    pinDownButton.className = 'action-button active';
+    pinNoneButton.className = 'action-button latent';
+  }
+}
+
+var pinDown = function() {
+  scrolling = 'pin-down';
+  updateButtons();
+};
+
+var pinNone = function() {
+  scrolling = 'none';
+  updateButtons();
+};
+
+var updateScroll = function() {
+  if (scrolling === 'pin-down') {
+    window.scrollTo(0,document.body.scrollHeight);
+  }
+};
+
+ws.onopen = function(event) {
+  console.log('Connected', event);
+};
+
+ws.onerror = function(error) {
+  console.log('Error', error);
+};
+
+ws.onmessage = function(msg) {
+  console.log(msg);
+  content.innerHTML = msg.data;
+  updateScroll();
+};
+</script>
+  </body>
+</html>
